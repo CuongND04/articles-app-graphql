@@ -7,9 +7,19 @@ export const typeDefs = gql`
     avatar: String
     description: String
   }
+  # truy vấn dữ liệu
   type Query {
     hello: String
     getListArticle: [Article]
     getArticle(id: ID): Article
+  }
+  # chỉnh sửa, thêm mới, xóa]
+  input ArticleInput {
+    title: String
+    avatar: String
+    description: String
+  }
+  type Mutation {
+    createArticle(article: ArticleInput): Article
   }
 `;
