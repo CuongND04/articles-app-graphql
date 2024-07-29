@@ -10,7 +10,7 @@ export const typeDefsUser = gql`
     token: String
   }
   type Query {
-    getUser(id: String): User
+    getUser: User
   }
   input RegisterUserInput {
     fullName: String
