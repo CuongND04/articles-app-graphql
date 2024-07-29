@@ -3,7 +3,7 @@ import * as database from "./config/database";
 import dotenv from "dotenv";
 import { ApolloServer, gql } from "apollo-server-express";
 import { typeDefs } from "./typeDefs/index.typeDefs";
-import { resolvers } from "./resolvers";
+import { resolvers } from "./resolvers/index.resolver";
 const startServer = async () => {
   const app: Express = express();
   const port: string | number = process.env.PORT || 3000;
