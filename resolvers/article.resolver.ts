@@ -10,13 +10,19 @@ export const resolversArticle = {
         limitItems,
         filterKey,
         filterValue,
+        keyword,
       } = args;
 
       // Bộ lọc
       const find = {
         deleted: false,
       };
-
+      // Tìm kiếm
+      if (keyword) {
+        const keywordRegex = new RegExp(keyword, "i");
+        find["title"] = keywordRegex;
+      }
+      // Hết Tìm kiếm
       if (filterKey && filterValue) {
         find[filterKey] = filterValue;
       }
