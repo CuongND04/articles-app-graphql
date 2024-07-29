@@ -2,10 +2,20 @@ import Article from "../models/article.model";
 import Category from "../models/category.model";
 export const resolversArticle = {
   Query: {
-    getListArticle: async () => {
+    getListArticle: async (_, args) => {
+      const { sortKey, sortValue } = args;
+
+      // Sắp xếp
+      const sort = {};
+
+      if (sortKey && sortValue) {
+        sort[sortKey] = sortValue;
+      }
+      // Hết Sắp xếp
+
       const articles = await Article.find({
         deleted: false,
-      });
+      }).sort(sort);
       return articles;
     },
     getArticle: async (_, args) => {
